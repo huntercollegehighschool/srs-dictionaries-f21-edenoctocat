@@ -1,6 +1,7 @@
 from Program1 import charcount
 from Program2 import exponents
 from Program3 import addtobag
+import json
 
 program = input("Which program(1, 2, or 3)? ")
 
@@ -13,6 +14,13 @@ elif program == '2':
   print(exponents(exponent))
 
 elif program == '3':
-  currentbag = {'Potion': 3, 'Revive': 5, 'Dawn Stone': 2, 'Fossilized Drake': 2} #you can change this dictionary to be sure the function works properly
-  championsloot = ['Max Revive', 'Max Revive', 'Hyper Potion', 'Revive', 'Fossilized Drake'] #you can change this list to be sure the function works properly
-  print(addtobag(currentbag, championsloot))
+  f = open("mybag.txt", "r")
+  currentbag = json.load(f)
+  f.close()
+  lootinput = input("Loot to add to your bag: ")
+  championsloot = lootinput.split(", ")
+  newbag = addtobag(currentbag, championsloot)
+  print(newbag)
+  f = open("mybag.txt", "w")
+  json.dump(currentbag, f)
+  f.close()
