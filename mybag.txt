@@ -1,0 +1,1 @@
+{"dawn stone": 1, "revive": 3, "dusk stone": 1, "potion": 1}

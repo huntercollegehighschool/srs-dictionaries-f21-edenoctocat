@@ -12,5 +12,8 @@ exponents(3)
 --> returns {2: 8, 3: 27, 4: 64, 5: 125, 6: 216, 7: 343, 8: 512, 9: 729, 10: 1000, 11: 1331}
 '''
 
-def exponents(exp): #do not change this line
-  pass #delete this line when you start writing your code
+def exponents(exp): 
+  dct = {}
+  for i in range(2, 12):
+    dct[i] = i ** exp
+  return dct
